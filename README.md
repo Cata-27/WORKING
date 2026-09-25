@@ -78,6 +78,10 @@ Agentes disponibles: `cazador-ofertas`, `evaluador-ofertas`, `redactor-aplicacio
 - **Tu perfil**: `config/perfil.md` (todo lo que Claude sabe de ti; nunca inventa nada fuera de esto).
 - **Startups a vigilar**: `config/empresas.yaml` (o pídele a Claude: *"usa investigador-startups para agregar startups colombianas"*).
 
+## Ramas
+
+`main` es la versión estable (de aquí corre la búsqueda diaria) y `dev` es la de integración. Todo cambio entra por **pull request**: rama de trabajo → `dev` → `main`. Ver [`docs/FLUJO_RAMAS.md`](docs/FLUJO_RAMAS.md).
+
 ## Desarrollo local
 
 ```bash

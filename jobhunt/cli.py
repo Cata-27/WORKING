@@ -34,9 +34,11 @@ def procesar(ofertas: list[Job], cfg, salida: Salida, *, prueba: bool, limite: i
              filtrar: bool = True, evaluador: Evaluador | None = None) -> dict:
     vistos = salida.vistos()
     nuevas = deduplicar(ofertas, vistos)
-    motivos = {}
+    motivos, descartes = {}, []
     if filtrar:
-        nuevas, motivos = Filtro(cfg.busqueda).aplicar(nuevas)
+        filtro = Filtro(cfg.busqueda)
+        nuevas, motivos = filtro.aplicar(nuevas)
+        descartes = filtro.descartes
     lim = limite or cfg.claude.get("max_evaluaciones_por_dia", 25)
     seleccion = priorizar(nuevas, cfg.busqueda, lim)
 
@@ -44,6 +46,8 @@ def procesar(ofertas: list[Job], cfg, salida: Salida, *, prueba: bool, limite: i
         "recolectadas": len(ofertas),
         "nuevas_tras_filtros": len(nuevas),
         "rechazos": dict(motivos),
+        # Muestra de descartes de portales generales (las bolsas de empresas son demasiadas).
+        "muestra_descartes": [d for d in descartes if d[0] in ("getonbrd", "remotive", "web")][:40],
         "evaluadas": 0,
         "a_la_hoja": 0,
         "destino": "",
@@ -110,6 +114,10 @@ def imprimir_resumen(r: dict, prueba: bool) -> None:
     if r["rechazos"]:
         lineas += ["", "### Motivos de descarte", ""]
         lineas += [f"- {m}: {n}" for m, n in sorted(r["rechazos"].items(), key=lambda x: -x[1])]
+    if r.get("muestra_descartes"):
+        lineas += ["", "### Muestra de descartes (Get on Board, Remotive y web)", "",
+                   "| Fuente | Puesto | Motivo |", "|---|---|---|"]
+        lineas += [f"| {f} | {t.replace('|', '/')} | {m.replace('|', '/')} |" for f, t, m in r["muestra_descartes"]]
     if r["seleccion"]:
         lineas += ["", "### Seleccionadas para evaluar (pre-puntaje)", "", "| Pre | Empresa | Puesto | Fuente |", "|---|---|---|---|"]
         lineas += [f"| {p} | {e} | {t} | {f} |" for p, e, t, f in r["seleccion"]]
