@@ -90,6 +90,7 @@ def test_anios_requeridos():
     assert anios_requeridos("5+ years of experience") == 5
     assert anios_requeridos("experiencia de 1 año") is None or anios_requeridos("experiencia de 1 año") <= 1
     assert anios_requeridos("Sin experiencia previa") is None
+    assert anios_requeridos("Con 30 years of experience delivering software") is None
 
 
 # --- Filtros -------------------------------------------------------------
@@ -113,7 +114,8 @@ def test_filtros_sobre_fixtures(filtro):
     ]
     assert motivos["título excluido"] == 1          # Senior Backend Engineer
     assert motivos["presencial fuera de Barranquilla"] == 1  # práctica en Bogotá
-    assert motivos["remoto restringido a USA Only"] == 1
+    assert motivos["remoto fuera de Colombia/LATAM"] == 1    # USA Only
+    assert ("remotive", "Junior Frontend Developer", "remoto restringido a USA Only") in filtro.descartes
 
 
 def _job(**kw):
