@@ -1,0 +1,160 @@
+# Preferencias de búsqueda. Edita este archivo para cambiar qué busca el sistema.
+
+# Palabras que usa cada fuente para buscar.
+consultas:
+  - desarrollador junior
+  - desarrolladora
+  - desarrollador fullstack
+  - desarrollador frontend
+  - desarrollador backend
+  - desarrollador mobile
+  - flutter
+  - react native
+  - practicante desarrollo
+  - practica profesional software
+  - trainee desarrollo
+  - programador junior
+
+# La oferta debe mencionar al menos una de estas en el título.
+roles_incluir:
+  - desarrollador
+  - desarrolladora
+  - developer
+  - programador
+  - programadora
+  - fullstack
+  - full stack
+  - full-stack
+  - frontend
+  - front-end
+  - front end
+  - backend
+  - back-end
+  - back end
+  - mobile
+  - móvil
+  - movil
+  - flutter
+  - react
+  - android
+  - software
+  - ingeniero de sistemas
+  - ingeniera de sistemas
+  - practicante
+  - pasante
+  - trainee
+  - aprendiz
+  - web
+
+# Si el título contiene alguna de estas, se descarta.
+titulos_excluir:
+  - senior
+  - sr.
+  - sr
+  - ssr
+  - semi senior
+  - semisenior
+  - semi-senior
+  - lead
+  - líder
+  - lider
+  - staff
+  - principal
+  - architect
+  - arquitecto
+  - arquitecta
+  - manager
+  - gerente
+  - head of
+  - director
+  - directora
+  - tech lead
+  - devops sr
+  - sap
+  - salesforce
+  - vendedor
+  - ventas
+  - comercial
+
+# Años de experiencia máximos que aceptamos si la oferta los pide.
+max_anios_experiencia: 2
+
+# Ubicación.
+ciudad: Barranquilla
+pais_codigo: CO
+# Palabras que cuentan como "remoto abierto a Colombia".
+remoto_regiones_ok:
+  - colombia
+  - latam
+  - latinoamérica
+  - latinoamerica
+  - américa latina
+  - america latina
+  - south america
+  - sudamérica
+  - sudamerica
+  - worldwide
+  - anywhere
+  - global
+  - remoto
+
+# Antigüedad máxima de la oferta, en días.
+max_dias_publicacion: 21
+
+# Bonificaciones del pre-puntaje (0-100) que ordena qué ofertas se evalúan con Claude.
+bonificaciones:
+  startup: 15
+  junior_o_practica: 20
+  pocos_aplicantes: 10     # menos de 30 aplicantes (si la fuente lo informa)
+  barranquilla: 15
+  por_tecnologia: 4        # por cada tecnología del perfil mencionada
+  max_por_tecnologia: 20
+
+tecnologias_perfil:
+  - java
+  - python
+  - javascript
+  - html
+  - css
+  - mysql
+  - sql
+  - flutter
+  - react native
+  - android
+  - docker
+  - git
+  - api
+  - ia
+  - inteligencia artificial
+
+# Palabras que sugieren que la empresa es una startup o empresa pequeña.
+senales_startup:
+  - startup
+  - start-up
+  - emprendimiento
+  - early stage
+  - early-stage
+  - seed
+  - pre-seed
+  - serie a
+  - series a
+  - y combinator
+  - yc
+  - equipo pequeño
+  - fundadores
+  - founders
+  - scaleup
+  - scale-up
+
+# Claude.
+claude:
+  modelo: claude-opus-5
+  esfuerzo: medium          # low | medium | high
+  max_evaluaciones_por_dia: 25
+  puntaje_minimo_para_hoja: 55   # por debajo, la oferta se marca como vista pero no va a la hoja
+
+# Fuentes activas.
+fuentes:
+  getonbrd: true
+  remotive: true
+  ats: true          # usa config/empresas.yaml

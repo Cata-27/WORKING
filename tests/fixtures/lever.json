@@ -1,0 +1,13 @@
+[
+  {
+    "id": "abc-123",
+    "text": "Desarrollador Mobile Flutter Trainee",
+    "hostedUrl": "https://jobs.lever.co/ejemplo/abc-123",
+    "categories": {"location": "Barranquilla, Colombia", "commitment": "Full-time", "team": "Ingeniería"},
+    "workplaceType": "hybrid",
+    "descriptionPlain": "Buscamos una persona en formación para nuestro equipo de desarrollo móvil en Barranquilla. Trabajarás con Flutter y APIs REST.",
+    "lists": [{"text": "Requisitos", "content": "<li>Estudiante de ingeniería de sistemas</li><li>Git</li>"}],
+    "additionalPlain": "Modalidad híbrida.",
+    "createdAt": 1790000000000
+  }
+]

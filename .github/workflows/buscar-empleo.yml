@@ -1,0 +1,47 @@
+name: Buscar empleo
+
+on:
+  schedule:
+    # Lunes a viernes, 6:47 a. m. hora de Colombia (11:47 UTC).
+    - cron: "47 11 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      limite:
+        description: "Máximo de ofertas a evaluar con Claude (vacío = lo de busqueda.yaml)"
+        required: false
+      prueba:
+        description: "Modo prueba (sin Claude ni Sheets)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: buscar-empleo
+  cancel-in-progress: false
+
+jobs:
+  buscar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Buscar, evaluar y enviar a Google Sheets
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SHEETS_WEBHOOK_URL: ${{ secrets.SHEETS_WEBHOOK_URL }}
+          SHEETS_TOKEN: ${{ secrets.SHEETS_TOKEN }}
+          DATOS_CONTACTO: ${{ secrets.DATOS_CONTACTO }}
+          LIMITE: ${{ inputs.limite }}
+          PRUEBA: ${{ inputs.prueba }}
+        run: |
+          args=()
+          if [ -n "$LIMITE" ]; then args+=(--limite "$LIMITE"); fi
+          if [ "$PRUEBA" = "true" ]; then args+=(--prueba); fi
+          python -m jobhunt buscar "${args[@]}"

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m jobhunt:*)",
+      "Bash(python -m pytest:*)",
+      "Bash(pip install -q -r requirements.txt)",
+      "Bash(date:*)",
+      "WebSearch"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+# Empresas cuyas bolsas de empleo se revisan directamente (APIs públicas de Greenhouse, Lever y Ashby).
+#
+# ats:  greenhouse | lever | ashby
+# slug: el identificador que aparece en la URL de su bolsa de empleo:
+#   https://job-boards.greenhouse.io/<slug>   ->  ats: greenhouse
+#   https://jobs.lever.co/<slug>              ->  ats: lever
+#   https://jobs.ashbyhq.com/<slug>           ->  ats: ashby
+# startup: true suma la bonificación de startup en el puntaje.
+#
+# Para ampliar esta lista usa el agente `investigador-startups` (o el skill /buscar-empleo),
+# que busca startups colombianas o LATAM y verifica el slug antes de agregarlo.
+# Si un slug no existe, la búsqueda solo muestra un aviso y sigue.
+
+empresas:
+  # Verificadas (tienen ofertas para Colombia en su bolsa de Lever).
+  - nombre: CI&T
+    ats: lever
+    slug: ciandt
+    startup: false
+  - nombre: Jobgether
+    ats: lever
+    slug: jobgether
+    startup: true
+
+  # Candidatas por verificar. El agente investigador-startups confirma el slug y las descomenta.
+  # - nombre: Rappi
+  #   ats: greenhouse
+  #   slug: rappi
+  #   startup: false
+  # - nombre: Truora
+  #   ats: lever
+  #   slug: truora
+  #   startup: true
+  # - nombre: Addi
+  #   ats: ashby
+  #   slug: addi
+  #   startup: true

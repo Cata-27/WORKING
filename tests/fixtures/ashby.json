@@ -1,0 +1,15 @@
+{
+  "jobs": [
+    {
+      "id": "zz-9",
+      "title": "Practicante de Desarrollo de Software",
+      "location": "Bogotá, Colombia",
+      "workplaceType": "OnSite",
+      "isRemote": false,
+      "isListed": true,
+      "descriptionPlain": "Práctica profesional para estudiantes de ingeniería de sistemas en nuestra oficina de Bogotá.",
+      "jobUrl": "https://jobs.ashbyhq.com/ejemplo/zz-9",
+      "publishedAt": "2026-09-22T12:00:00.000+00:00"
+    }
+  ]
+}

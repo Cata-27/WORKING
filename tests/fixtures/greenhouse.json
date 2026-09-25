@@ -1,0 +1,12 @@
+{
+  "jobs": [
+    {
+      "id": 555,
+      "title": "Desarrollador Frontend Junior",
+      "absolute_url": "https://job-boards.greenhouse.io/ejemplo/jobs/555",
+      "location": {"name": "Remoto - LATAM"},
+      "content": "&lt;p&gt;Buscamos un desarrollador junior con conocimientos de HTML, CSS y JavaScript para nuestro equipo.&lt;/p&gt;",
+      "updated_at": "2026-09-20T10:00:00-05:00"
+    }
+  ]
+}

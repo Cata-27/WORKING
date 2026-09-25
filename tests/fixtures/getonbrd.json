@@ -1,0 +1,41 @@
+{
+  "data": [
+    {
+      "id": "desarrollador-fullstack-junior-startup-x-remote",
+      "type": "job",
+      "attributes": {
+        "title": "Desarrollador/a Fullstack Junior",
+        "description": "<p>Somos una startup en etapa seed que busca un desarrollador junior para unirse a nuestro equipo pequeño. Trabajarás con JavaScript, Python y MySQL.</p>",
+        "functions": "<ul><li>Desarrollar funcionalidades en el frontend y backend</li><li>Integrar APIs</li></ul>",
+        "desirable": "<p>Conocimientos de Docker. Inglés básico deseable.</p>",
+        "benefits": null,
+        "remote": true,
+        "remote_modality": "fully_remote",
+        "countries": ["Colombia", "Perú"],
+        "published_at": 1790000000,
+        "applications_count": 12,
+        "min_salary": 800,
+        "max_salary": 1200,
+        "seniority": {"data": {"id": 2, "type": "seniority"}},
+        "company": {"data": {"id": "startup-x", "type": "company", "attributes": {"name": "Startup X"}}}
+      },
+      "links": {"public_url": "https://www.getonbrd.com/jobs/programming/desarrollador-fullstack-junior-startup-x-remote"}
+    },
+    {
+      "id": "senior-backend-engineer-bigco",
+      "type": "job",
+      "attributes": {
+        "title": "Senior Backend Engineer",
+        "description": "<p>We are looking for a senior engineer with 5+ years of experience. Fluent English required.</p>",
+        "remote": true,
+        "remote_modality": "fully_remote",
+        "countries": ["Chile"],
+        "published_at": 1790000000,
+        "seniority": {"data": {"id": 4}},
+        "company": {"data": {"id": "bigco", "attributes": {"name": "BigCo"}}}
+      },
+      "links": {"public_url": "https://www.getonbrd.com/jobs/programming/senior-backend-engineer-bigco"}
+    }
+  ],
+  "meta": {"page": 1, "per_page": 50, "total_pages": 1}
+}

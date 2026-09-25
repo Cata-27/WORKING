@@ -1,0 +1,24 @@
+{
+  "jobs": [
+    {
+      "id": 1,
+      "url": "https://remotive.com/remote-jobs/software-dev/dev-1",
+      "title": "Junior Frontend Developer",
+      "company_name": "Acme",
+      "candidate_required_location": "USA Only",
+      "description": "<p>We are looking for a junior developer to join our team. You will work with React.</p>",
+      "publication_date": "2026-09-23T10:00:00",
+      "job_type": "full_time"
+    },
+    {
+      "id": 2,
+      "url": "https://remotive.com/remote-jobs/software-dev/dev-2",
+      "title": "Desarrollador Backend Junior",
+      "company_name": "Latam Co",
+      "candidate_required_location": "LATAM",
+      "description": "<p>Buscamos un desarrollador backend junior para nuestro equipo remoto. Trabajarás con Python y bases de datos.</p>",
+      "publication_date": "2026-09-23T10:00:00",
+      "job_type": "full_time"
+    }
+  ]
+}

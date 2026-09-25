@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.env
+salida/*
+!salida/.gitkeep
+data/vistos.json
+data/bandeja.json
