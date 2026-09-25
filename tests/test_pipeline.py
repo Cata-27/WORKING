@@ -214,3 +214,10 @@ def test_leer_bandeja(tmp_path):
     ]), encoding="utf-8")
     ofertas = cli.leer_bandeja(ruta)
     assert len(ofertas) == 1 and ofertas[0].es_startup and ofertas[0].fuente == "web"
+
+
+def test_empresas_yaml_valido(cfg):
+    assert cfg.empresas, "empresas.yaml no tiene empresas activas"
+    for e in cfg.empresas:
+        assert e.get("ats") in ats.URLS, e
+        assert e.get("slug") and e.get("nombre"), e
