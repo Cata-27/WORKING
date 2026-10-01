@@ -29,7 +29,8 @@ _ANIOS = re.compile(
 
 
 def anios_requeridos(texto: str) -> int | None:
-    valores = [int(a or b) for a, b in _ANIOS.findall(texto)]
+    # Más de 15 años suele ser la trayectoria de la empresa, no un requisito.
+    valores = [v for a, b in _ANIOS.findall(texto) if (v := int(a or b)) <= 15]
     return min(valores) if valores else None
 
 
@@ -105,14 +106,29 @@ class Filtro:
         return None
 
     def aplicar(self, ofertas: list[Job]) -> tuple[list[Job], Counter]:
+        """Devuelve las aceptadas y el conteo por categoría de motivo. El detalle de cada
+        descarte queda en `self.descartes` (fuente, título, motivo) para diagnosticar filtros."""
         aceptadas, motivos = [], Counter()
+        self.descartes: list[tuple[str, str, str]] = []
         for job in ofertas:
             motivo = self.motivo_rechazo(job)
             if motivo:
-                motivos[motivo.split(" (")[0]] += 1
+                motivos[categoria(motivo)] += 1
+                self.descartes.append((job.fuente, job.titulo, motivo))
             else:
                 aceptadas.append(job)
         return aceptadas, motivos
+
+
+def categoria(motivo: str) -> str:
+    """Agrupa motivos con detalle variable ("publicada hace 38 días" -> "publicada hace más de N días")."""
+    if motivo.startswith(("remoto restringido", "remoto solo para")):
+        return "remoto fuera de Colombia/LATAM"
+    if motivo.startswith("publicada hace"):
+        return "publicada hace demasiado"
+    if motivo.startswith("pide ") and "años" in motivo:
+        return "pide más años de experiencia"
+    return motivo.split(" (")[0]
 
 
 def deduplicar(ofertas: list[Job], vistos: set[str] = frozenset()) -> list[Job]:

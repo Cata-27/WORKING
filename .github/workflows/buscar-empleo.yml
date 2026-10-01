@@ -43,5 +43,10 @@ jobs:
         run: |
           args=()
           if [ -n "$LIMITE" ]; then args+=(--limite "$LIMITE"); fi
-          if [ "$PRUEBA" = "true" ]; then args+=(--prueba); fi
+          if [ "$PRUEBA" = "true" ]; then
+            args+=(--prueba)
+          elif [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::warning::Falta el secreto ANTHROPIC_API_KEY: se ejecuta en modo prueba (sin Claude ni Sheets). Configúralo en Settings → Secrets and variables → Actions."
+            args+=(--prueba)
+          fi
           python -m jobhunt buscar "${args[@]}"

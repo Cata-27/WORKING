@@ -98,8 +98,8 @@ remoto_regiones_ok:
   - global
   - remoto
 
-# Antigüedad máxima de la oferta, en días.
-max_dias_publicacion: 21
+# Antigüedad máxima de la oferta, en días (en Get on Board muchas siguen abiertas semanas).
+max_dias_publicacion: 45
 
 # Bonificaciones del pre-puntaje (0-100) que ordena qué ofertas se evalúan con Claude.
 bonificaciones:

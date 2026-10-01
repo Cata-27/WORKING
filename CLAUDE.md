@@ -13,6 +13,11 @@ Automatización de búsqueda de empleo para **Ana Catalina Torres Oñate**, desa
 - `apps_script/Code.gs`: webhook de Google Sheets (pestañas Ofertas, Enlaces del día y Vistos, más un correo diario).
 - `.claude/agents/` y `.claude/skills/`: asistentes interactivos (ver `docs/PLAN.md`).
 
+## Ramas
+
+- `main` (estable; de aquí corre la búsqueda diaria) ← PR desde `dev` ← PR desde ramas de trabajo.
+- Nunca hagas push directo a `main` ni a `dev`: siempre por PR. Detalles en `docs/FLUJO_RAMAS.md`.
+
 ## Reglas
 
 - Repositorio **público**: nunca escribas teléfono, correo, URLs del webhook ni tokens en archivos del repo. Los datos de contacto van en el secreto `DATOS_CONTACTO`.

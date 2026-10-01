@@ -90,6 +90,7 @@ def test_anios_requeridos():
     assert anios_requeridos("5+ years of experience") == 5
     assert anios_requeridos("experiencia de 1 año") is None or anios_requeridos("experiencia de 1 año") <= 1
     assert anios_requeridos("Sin experiencia previa") is None
+    assert anios_requeridos("Con 30 years of experience delivering software") is None
 
 
 # --- Filtros -------------------------------------------------------------
@@ -113,7 +114,8 @@ def test_filtros_sobre_fixtures(filtro):
     ]
     assert motivos["título excluido"] == 1          # Senior Backend Engineer
     assert motivos["presencial fuera de Barranquilla"] == 1  # práctica en Bogotá
-    assert motivos["remoto restringido a USA Only"] == 1
+    assert motivos["remoto fuera de Colombia/LATAM"] == 1    # USA Only
+    assert ("remotive", "Junior Frontend Developer", "remoto restringido a USA Only") in filtro.descartes
 
 
 def _job(**kw):
@@ -214,3 +216,10 @@ def test_leer_bandeja(tmp_path):
     ]), encoding="utf-8")
     ofertas = cli.leer_bandeja(ruta)
     assert len(ofertas) == 1 and ofertas[0].es_startup and ofertas[0].fuente == "web"
+
+
+def test_empresas_yaml_valido(cfg):
+    assert cfg.empresas, "empresas.yaml no tiene empresas activas"
+    for e in cfg.empresas:
+        assert e.get("ats") in ats.URLS, e
+        assert e.get("slug") and e.get("nombre"), e

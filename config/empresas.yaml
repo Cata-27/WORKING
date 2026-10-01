@@ -22,6 +22,26 @@ empresas:
     slug: jobgether
     startup: true
 
+  # Verificadas por sus ofertas publicadas en Ashby (publican en español para Colombia o LATAM).
+  - nombre: Nubank
+    ats: ashby
+    slug: nubank
+    startup: false
+  - nombre: Skydropx
+    ats: ashby
+    slug: Skydropx
+    startup: true
+  - nombre: Truelogic
+    ats: ashby
+    slug: truelogic
+    startup: false
+
+  # Tienen bolsa verificada con ofertas para Colombia, pero sobre todo en inglés.
+  # El filtro de idioma las descartaría; actívalas si algún día aplicas en inglés.
+  # - {nombre: OfferUp, ats: greenhouse, slug: offerup, startup: false}
+  # - {nombre: Sezzle, ats: greenhouse, slug: sezzle, startup: false}
+  # - {nombre: Blanc Labs, ats: lever, slug: blanc-labs, startup: true}
+
   # Candidatas por verificar. El agente investigador-startups confirma el slug y las descomenta.
   # - nombre: Rappi
   #   ats: greenhouse
